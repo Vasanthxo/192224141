@@ -1,10 +1,14 @@
-time=int(input( ))
-entry=list(map(int, input().split( )))
-exitt=list(map(int, input().split( )))
-present=0
-total_guests=0
-for i in range(time):
-    present += entry[i]-exit[i]
-    if total_guests < present:
-        total_guests = present
-print(total_guests, end = " ")
+def max_area_container(arr):
+    max_area=0
+    left=0
+    right=len(arr)-1
+    while left<right:
+        cur_area=min(arr[left],arr[right])*(right-left)
+        max_area=max(max_area,cur_area)
+        if arr[left]<arr[right]:
+            left+=1
+        else:
+            right-=1
+    return max_area
+arr=[1,5,4,3]
+print(max_area_container(arr)
